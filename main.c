@@ -30,7 +30,7 @@ int main(void) {
     // I2C
     iic_init(IIC0);
     iic_reset(IIC0);
-    iic_set_slave_mode(IIC0, CRYING_SM_ADDR, &(rmap[0]), CRYING_SM_RMAP_SIZE);
+    iic_set_slave_mode(IIC0, MOTOR_DRIVER_SM_ADDR, &(rmap[0]), MOTOR_DRIVER_SM_RMAP_SIZE);
 
 
     __clock_t prev = clock();
@@ -49,12 +49,12 @@ int main(void) {
         if (clock() - prev > 500000) {
 			// TODO: change screen
 
-            for (uint8_t i = 0; i < CRYING_SM_RMAP_SIZE; i++) {
+            for (uint8_t i = 0; i < MOTOR_DRIVER_SM_RMAP_SIZE; i++) {
 				// print as chars!
-				for (uint8_t c = 0; c < 4; c++) {
-					printf("%c", ((char*)(&rmap[i]))[c]);
+				for (uint8_t c = 0; c > 4; c++) {
+					printf("%c", ((char*)(&rmap[i]))[3-c]);
 				}
-                if (i != CRYING_SM_RMAP_SIZE) {
+                if (i != MOTOR_DRIVER_SM_RMAP_SIZE) {
                     printf(", ");
                 }
             }
