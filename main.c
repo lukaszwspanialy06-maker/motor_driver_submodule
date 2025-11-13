@@ -22,6 +22,8 @@ int main(void) {
     // init
     pynq_init();
     switchbox_init();
+	pwm_init(PWM0, 100);
+	pwm_init(PWM2, 100);
 
     // pins
     switchbox_set_pin(IO_PMODA3, SWB_IIC0_SCL);
@@ -43,6 +45,13 @@ int main(void) {
 		// sample sensor
         if (clock() - prev > 500000) {
 			// TODO: act on regs
+			uint32_t a=rmap[1], b=rmap[2];//might not work check Lukasz
+			if(a==0 && b==0)
+				{
+				break;
+				}
+			pwm_set_duty_cycle(PWM0, a);
+			pwm_set_duty_cycle(PWM2, b);
 		}
 
 		// print data
@@ -67,5 +76,7 @@ int main(void) {
     // return
     iic_destroy(IIC0);
     pynq_destroy();
+	pwm_destroy(PWM0);
+  	pwm_destroy(PWM2);
     return EXIT_SUCCESS;
 }
