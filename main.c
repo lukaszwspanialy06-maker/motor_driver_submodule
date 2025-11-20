@@ -48,10 +48,6 @@ int main(void) {
         if (clock() - prev > 500000) {
 			// TODO: act on regs
 			uint32_t a=rmap[MOTOR_DRIVER_SM_AMPLITUDE_REG], b=rmap[MOTOR_DRIVER_SM_FREQUENCY_REG];//might not work check Lukasz
-			if(a==0 && b==0)
-				{
-				break;
-				}
 			pwm_set_duty_cycle(PWM0, a);
 			pwm_set_duty_cycle(PWM1, b);
 		}
