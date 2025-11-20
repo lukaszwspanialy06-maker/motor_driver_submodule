@@ -47,13 +47,13 @@ int main(void) {
 		// sample sensor
         if (clock() - prev > 500000) {
 			// TODO: act on regs
-			uint32_t a=rmap[1], b=rmap[2];//might not work check Lukasz
+			uint32_t a=rmap[MOTOR_DRIVER_SM_AMPLITUDE_REG], b=rmap[MOTOR_DRIVER_SM_FREQUENCY_REG];//might not work check Lukasz
 			if(a==0 && b==0)
 				{
 				break;
 				}
 			pwm_set_duty_cycle(PWM0, a);
-			pwm_set_duty_cycle(PWM2, b);
+			pwm_set_duty_cycle(PWM1, b);
 		}
 
 		// print data
@@ -79,6 +79,6 @@ int main(void) {
     iic_destroy(IIC0);
     pynq_destroy();
 	pwm_destroy(PWM0);
-  	pwm_destroy(PWM2);
+  	pwm_destroy(PWM1);
     return EXIT_SUCCESS;
 }
