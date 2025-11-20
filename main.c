@@ -28,6 +28,8 @@ int main(void) {
     // pins
     switchbox_set_pin(IO_PMODA3, SWB_IIC0_SCL);
     switchbox_set_pin(IO_PMODA4, SWB_IIC0_SDA);
+	switchbox_set_pin(IO_A0,SWB_PWM0);
+	switchbox_set_pin(IO_A1, SWB_PWM1);
 
     // I2C
     iic_init(IIC0);
