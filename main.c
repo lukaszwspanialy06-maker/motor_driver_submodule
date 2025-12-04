@@ -57,8 +57,8 @@ int main(void) {
     // pins
     switchbox_set_pin(IO_AR_SCL, SWB_IIC0_SCL);
     switchbox_set_pin(IO_AR_SDA, SWB_IIC0_SDA);
-    switchbox_set_pin(IO_AR1, SWB_PWM0);
-    switchbox_set_pin(IO_AR2, SWB_PWM1);
+    switchbox_set_pin(IO_AR0, SWB_PWM0);
+    switchbox_set_pin(IO_AR1, SWB_PWM1);
 
     //PWM
     pwm_init(AMP_CHANNEL, CLOCK_FREQ/PWM_FREQ);
