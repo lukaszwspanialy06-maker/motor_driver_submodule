@@ -63,7 +63,7 @@ int main(void) {
     //PWM
     pwm_init(AMP_CHANNEL, CLOCK_FREQ/PWM_FREQ);
     pwm_init(FREQ_CHANNEL, CLOCK_FREQ/PWM_FREQ);
-    float PWM_STATES[5] = {0.05, 0.2, 0.4, 0.6, 0.8};
+    float PWM_STATES[5] = {0.95, 0.8, 0.6, 0.4, 0.2};
 
     // I2C
     iic_init(IIC0);
